@@ -1,0 +1,12 @@
+// Description
+	Collaboration is the tool for creating tools for C++. This means
+	that the tool in collaboration program makes writing, debuging
+	and crafting process of c++ program easier. The main focus
+	is game development. 
+
+// Steps for Collaboration
+
+1. What tool are we going to create for c++?
+2. Generate it with Generator Tool Engine.
+3. Test it.
+4. Use it.
