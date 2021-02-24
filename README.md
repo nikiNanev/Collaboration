@@ -1,2 +1,2 @@
 # Collaboration
-A tool which create set of tools for c++ game development
+A tool which create a set of tools for c++ game development and game engine utilities.
