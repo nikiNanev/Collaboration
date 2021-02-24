@@ -1,5 +1,5 @@
 // Description
-	Collaboration is the tool for creating tools for C++. This means
+	Collaboration is the tool for creating tools for C++ game development. This means
 	that the tool in collaboration program makes writing, debuging
 	and crafting process of c++ program easier. The main focus
 	is game development. 
@@ -10,3 +10,11 @@
 2. Generate it with Generator Tool Engine.
 3. Test it.
 4. Use it.
+
+// List of Game engine parts for creating tools
+
+1. Render Engine
+2. Physics Engine
+3. Collision Detection
+4. Sound Engine
+5. Scripting

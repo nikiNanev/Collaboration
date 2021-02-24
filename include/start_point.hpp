@@ -2,20 +2,21 @@
 #define START_POINT_H_
 
 #include <iostream>
+#include <map>
 
 class StartPoint {
-	int type;
-	std::string question_what_tool = "What tool are we going to create? (select option [1-5]): ";
-	std::string option_set[5] = {
-	"Render Engine",
-	"Physics Engine",
-	"Collision Detection",
-	"Sound Engine",
-	"Scripting"};
+	char type;
+	std::string title = "Collaboration v0.1\n\n";
+	std::string optionList = "\nList of options\n"
+							   "---------------------------------------------------------------------------\n"
+							   "(1) Render Engine\t\t (2) Physics Engine\t\t (3) Collision Detection \n "
+							   "(4) Sound Engine\t\t (5) Scripting\n";
+	std::string questionWhatTool = "What tool are we going to create? (select option [1-5] or q for quit): ";
+	std::map<char, std::string> optionSet;
 public:
 	StartPoint();
 	~StartPoint();
-	void message(int type);
+	void showMessage(char type);
 };
 
 #endif

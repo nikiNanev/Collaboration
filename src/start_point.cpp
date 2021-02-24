@@ -2,40 +2,56 @@
 
 StartPoint::StartPoint()
 {
-	std::cout << this->question_what_tool;
+	this->optionSet['1'] = "Render Engine";
+	this->optionSet['2'] = "Physics Engine";
+	this->optionSet['3'] = "Collision Detection";
+	this->optionSet['4'] = "Sound Engine";
+	this->optionSet['5'] = "Scripting";
+	this->optionSet['q'] = "Quit";
+	
+	//Main Menu
+	std::cout << this->title;
+	std::cout << this->optionList;
+	std::cout << this->questionWhatTool;
 	std::cin >> this->type;
 	
-	if(type >= 1 && type <= 5)
+	if(type >= '1' && type <= '5' || type == 'q')
 	{
 		switch(type){
-			case 1:
+			case '1':
 			{
-				std::cout << "You selected " << type << " option." << std::endl;	
-				std::cout << this->option_set[this->type - 1] << std::endl;
+				//Render Engine
+				this->showMessage(type);
 			}
 			break;
-			case 2:
+			case '2':
 			{
-				std::cout << "You selected " << type << " option." << std::endl;	
-				std::cout << this->option_set[this->type - 1] << std::endl;
+				//Physics Engine
+				this->showMessage(type);
 			}
 			break;
-			case 3:
+			case '3':
 			{
-				std::cout << "You selected " << type << " option." << std::endl;	
-				std::cout << this->option_set[this->type - 1] << std::endl;
+				//Collision Detection
+				this->showMessage(type);
 			}
 			break;
-			case 4:
+			case '4':
 			{
-				std::cout << "You selected " << type << " option." << std::endl;	
-				std::cout << this->option_set[this->type - 1] << std::endl;
+				//Sound Engine
+				this->showMessage(type);
 			}
 			break;
-			case 5:
+			case '5':
 			{
-				std::cout << "You selected " << type << " option." << std::endl;	
-				std::cout << this->option_set[this->type - 1] << std::endl;
+				//Scripting
+				this->showMessage(type);
+			}
+			break;
+			case 'q':
+			{
+				//Quit
+				this->showMessage(type);
 			}
 		}
 		
@@ -44,4 +60,10 @@ StartPoint::StartPoint()
 	{
 		std::cout << "Out of option range." << std::endl;
 	}	
+}
+
+void StartPoint::showMessage(char type)
+{
+	std::cout << "You selected " << type << " option." << std::endl;
+	std::cout << this->optionSet[type] << std::endl;
 }
