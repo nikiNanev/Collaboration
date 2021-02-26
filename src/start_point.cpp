@@ -30,7 +30,7 @@ StartPoint::StartPoint()
 			{
 				//Render Engine
 				this->showMessage(type);
-				RenderEngineMain *rem = new RenderEngineMain();
+				RenderEngineMain *rem = new RenderEngineMain(0);
 			}
 			break;
 			case '2':
