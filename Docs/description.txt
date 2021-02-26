@@ -1,7 +1,6 @@
 // Description
-	Collaboration is the tool for creating tools for C++ game development. This means
-	that the tool in collaboration program makes writing, debuging
-	and crafting process of c++ program easier. The main focus
+	Collaboration is a program for creating tools for C++ game development. This means
+	that the program makes different utilities for c++ classes, functions and modules. The main focus
 	is game development. 
 
 // Steps for Collaboration
