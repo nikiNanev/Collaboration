@@ -18,7 +18,7 @@ StartPoint::StartPoint()
 	//Main Menu
 	std::cout << this->title;
 	std::cout << this->optionList;
-	std::cout << this->questionWhatTool;
+	std::cout << this->questionEntry;
 	std::cin >> this->type;
 	
 	
