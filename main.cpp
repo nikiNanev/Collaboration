@@ -1,8 +1,8 @@
-#include "include/start_point.hpp"
+#include "include/main_entry.h"
 
 int main(int argc, char **argv)
 {
-	StartPoint *start_point = new StartPoint();
-	
+	MainEntry *pMainEntry = new MainEntry();
+	pMainEntry->run();
 	return 0;
 }
