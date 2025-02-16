@@ -26,6 +26,6 @@ void RenderEngine::run()
 	// Everthing okey?
 	if (this->init())
 	{
-		//Run this mother f***er ( lover )
+		//Run this mother f***er ( *** -> low )
 	}
 }
