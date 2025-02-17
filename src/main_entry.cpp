@@ -10,6 +10,8 @@
 
 #include <sstream>
 
+#include <memory>
+
 // Third Party headers
 
 // fmt
@@ -32,7 +34,7 @@ std::string MainEntry::optionList()
 	std::string separator = this->separator(w.ws_col - 2);
 
 	std::string optionsText = "Render Engine { 1 | R }  Physics Engine { 2 | P }  Sound Engine { 3 | S }  Scripting Engine { 4 | C }  Quit { q | Q }";
-	// Centering the text for options 
+	// Centering the text for options
 	size_t space = w.ws_col - optionsText.length();
 	space /= 2;
 	std::string options = std::string(space, ' ') + optionsText + std::string(space, ' ');
@@ -88,8 +90,8 @@ void MainEntry::run()
 		{
 			// Render Engine
 			this->showMessage(type);
-			RenderEngine *pRender = new RenderEngine();
-			pRender->run();
+			std::unique_ptr<RenderEngine> pRenderer = std::make_unique<RenderEngine>();
+			pRenderer->run();
 		}
 		break;
 		case '2':
@@ -98,7 +100,7 @@ void MainEntry::run()
 		{
 			// Physics Engine
 			this->showMessage(type);
-			PhysicsEngine *pPhysics = new PhysicsEngine();
+			std::unique_ptr<PhysicsEngine> pPhysics = std::make_unique<PhysicsEngine>();
 			pPhysics->run();
 		}
 		break;
@@ -108,7 +110,8 @@ void MainEntry::run()
 		{
 			// Sound Engine
 			this->showMessage(type);
-			SoundEngine *pSounds = new SoundEngine();
+
+			std::unique_ptr<SoundEngine> pSounds = std::make_unique<SoundEngine>();
 			pSounds->run();
 		}
 		break;
@@ -118,7 +121,8 @@ void MainEntry::run()
 		{
 			// Scripting
 			this->showMessage(type);
-			Scripting *pScripting = new Scripting();
+			
+			std::unique_ptr<Scripting> pScripting = std::make_unique<Scripting>();
 			pScripting->run();
 		}
 		break;
