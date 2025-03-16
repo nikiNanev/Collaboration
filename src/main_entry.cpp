@@ -5,45 +5,42 @@
 #include "../include/sound_engine/sound_engine.h"
 #include "../include/scripting/scripting.h"
 
-#include <sys/ioctl.h> // utilities for the terminal
-#include <unistd.h>	   //STDOUT_FILENO
-
+#include <sys/ioctl.h>
+#include <unistd.h>
 #include <sstream>
-
 #include <memory>
 
 // Third Party headers
 
-// fmt
 #include <fmt/core.h>
 #include <fmt/color.h>
 
-struct winsize w; // terminal size ( width/height (rows/cols))
-
-std::string MainEntry::separator(size_t width)
+std::string MainEntry::Separator(size_t width)
 {
 	std::string separator = std::string(width, '-');
 	return separator;
 }
 
-std::string MainEntry::optionList()
+std::string MainEntry::getOptionsDescription()
 {
+	struct winsize w; // Structure for storing rows and cols of a terminal
 	ioctl(STDOUT_FILENO, TIOCGWINSZ, &w);
 
-	std::stringstream ss;
-	std::string separator = this->separator(w.ws_col - 2);
+	std::string separator = this->Separator(w.ws_col - 2);
 
 	std::string optionsText = "Render Engine { 1 | R }  Physics Engine { 2 | P }  Sound Engine { 3 | S }  Scripting Engine { 4 | C }  Quit { q | Q }";
-	// Centering the text for options
-	size_t space = w.ws_col - optionsText.length();
-	space /= 2;
-	std::string options = std::string(space, ' ') + optionsText + std::string(space, ' ');
 
-	ss << separator << std::endl;
-	ss << options << std::endl;
-	ss << separator << std::endl;
+	// Centering the options text ( terminalWidth - optionsTextLength ) / 2
+	size_t gap = w.ws_col - optionsText.length();
+	gap /= 2;
+	std::string options = std::string(gap, ' ') + optionsText + std::string(gap, ' ');
 
-	std::string info = ss.str();
+	std::stringstream ssFormatter;
+	ssFormatter << separator << std::endl;
+	ssFormatter << options << std::endl;
+	ssFormatter << separator << std::endl;
+
+	std::string info = ssFormatter.str();
 
 	return info;
 }
@@ -77,7 +74,7 @@ void MainEntry::run()
 		// Main Menu
 		fmt::print(fg(fmt::color::bisque), "{0}\n{1}\n{2}",
 				   this->title,
-				   this->optionList(),
+				   this->getOptionsDescription(),
 				   this->questionEntry);
 
 		std::cin >> this->type;
@@ -121,7 +118,7 @@ void MainEntry::run()
 		{
 			// Scripting
 			this->showMessage(type);
-			
+
 			std::unique_ptr<Scripting> pScripting = std::make_unique<Scripting>();
 			pScripting->run();
 		}

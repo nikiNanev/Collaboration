@@ -21,8 +21,8 @@ public:
 	bool init();
 	void run();
 
-	std::string separator(size_t width);
-	std::string optionList();
+	std::string Separator(size_t width);
+	std::string getOptionsDescription();
 };
 
 #endif

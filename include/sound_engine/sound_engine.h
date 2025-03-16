@@ -8,6 +8,8 @@ class SoundEngine {
 public:
 	SoundEngine();
 
+	int MainWindow();
+
 	bool init();
 	void run();
 };

@@ -30,11 +30,26 @@ list(APPEND INCLUDES "${CMAKE_SOURCE_DIR}/include/")
 message(STATUS "Sources found: ${SOURCES}")
 message(STATUS "Include directories found: ${INCLUDES}")
 
-include_directories(${INCLUDES})
+set(IMGUI_SOURCES
+    third_party/imgui/backends/imgui_impl_sdl3.cpp
+    third_party/imgui/backends/imgui_impl_vulkan.cpp
+    
+    third_party/imgui/imgui.cpp
+    third_party/imgui/imgui_draw.cpp
+    third_party/imgui/imgui_tables.cpp
+    third_party/imgui/imgui_widgets.cpp)
 
-add_executable(${PROJECT_NAME} ${SOURCES})
+set(IMGUI_INCLUDES
+    third_party/imgui/
+    third_party/imgui/backends/)
 
-target_link_libraries(${PROJECT_NAME} PRIVATE fmt)
+message(STATUS "IMGUI sources: ${IMGUI_SOURCES}")
+message(STATUS "IMGUI headers: ${IMGUI_INCLUDES}")
+include_directories(${INCLUDES} ${IMGUI_INCLUDES})
+
+add_executable(${PROJECT_NAME} ${SOURCES} ${IMGUI_SOURCES})
+
+target_link_libraries(${PROJECT_NAME} PRIVATE fmt vulkan SDL3)
 
 
 
