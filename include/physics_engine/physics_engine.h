@@ -11,6 +11,8 @@ public:
 
 	bool init();
 	void run();
+
+	int MainWindow();
 };
 
 #endif
