@@ -2,6 +2,12 @@
 
 #include "../../third_party/imgui/window_utilities.h"
 
+// Headers for Vulkan Engine
+#include "../../include/render_engine/vk_engine.h"
+
+
+// End of Vulkan headers
+
 // Third party
 #include <fmt/core.h>
 #include <fmt/color.h>
@@ -22,7 +28,7 @@ bool RenderEngine::init()
 	return false;
 }
 
-int RenderEngine::MainWindow()
+static int imgui_main_window()
 {
 	// Setup SDL
 	if (!SDL_Init(SDL_INIT_VIDEO | SDL_INIT_GAMEPAD) != 0)
@@ -200,6 +206,19 @@ int RenderEngine::MainWindow()
 
 	SDL_DestroyWindow(window);
 	SDL_Quit();
+
+	return 0;
+}
+
+int RenderEngine::MainWindow()
+{
+	VulkanEngine engine;
+
+	engine.init();
+
+	engine.run();
+
+	engine.cleanup();
 
 	return 0;
 }

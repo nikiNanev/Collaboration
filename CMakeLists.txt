@@ -49,7 +49,9 @@ include_directories(${INCLUDES} ${IMGUI_INCLUDES})
 
 add_executable(${PROJECT_NAME} ${SOURCES} ${IMGUI_SOURCES})
 
-target_link_libraries(${PROJECT_NAME} PRIVATE fmt vulkan SDL3)
+add_subdirectory(vk-bootstrap)
+
+target_link_libraries(${PROJECT_NAME} PRIVATE fmt vulkan SDL3 vk-bootstrap::vk-bootstrap)
 
 
 
