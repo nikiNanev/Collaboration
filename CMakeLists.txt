@@ -35,6 +35,7 @@ set(IMGUI_SOURCES
     third_party/imgui/backends/imgui_impl_vulkan.cpp
     
     third_party/imgui/imgui.cpp
+    third_party/imgui/imgui_demo.cpp
     third_party/imgui/imgui_draw.cpp
     third_party/imgui/imgui_tables.cpp
     third_party/imgui/imgui_widgets.cpp)
