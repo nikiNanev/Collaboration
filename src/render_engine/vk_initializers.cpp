@@ -186,3 +186,25 @@ VkRenderingInfo vkinit::rendering_info(VkExtent2D extent, VkRenderingAttachmentI
 
     return renderingInfo;
 }
+
+VkPipelineLayoutCreateInfo vkinit::pipeline_layout_create_info()
+{
+    VkPipelineLayoutCreateInfo pipeline_layout = {};
+    pipeline_layout.sType = VK_STRUCTURE_TYPE_PIPELINE_LAYOUT_CREATE_INFO;
+    pipeline_layout.pNext = nullptr;
+
+    return pipeline_layout;
+}
+
+VkPipelineShaderStageCreateInfo vkinit::pipeline_shader_stage_create_info(VkShaderStageFlagBits stage, VkShaderModule module)
+{
+    VkPipelineShaderStageCreateInfo pipeline_shader_stage = {};
+    pipeline_shader_stage.sType = VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_CREATE_INFO;
+    pipeline_shader_stage.pNext = nullptr;
+
+    pipeline_shader_stage.pName = "main";
+    pipeline_shader_stage.stage = stage;
+    pipeline_shader_stage.module = module;
+
+    return pipeline_shader_stage;
+}

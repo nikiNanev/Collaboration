@@ -3,6 +3,26 @@
 #include "vk_types.h"
 #include "vk_descriptors.h"
 
+#include <glm/vec4.hpp>
+
+struct ComputePushConstants
+{
+    glm::vec4 data1;
+    glm::vec4 data2;
+    glm::vec4 data3;
+    glm::vec4 data4;
+};
+
+struct ComputeEffect
+{
+    const char *name;
+
+    VkPipeline pipeline;
+    VkPipelineLayout layout;
+
+    ComputePushConstants data;
+};
+
 struct DeletionQueue
 {
     std::deque<std::function<void()>> deletors;
@@ -90,6 +110,12 @@ public:
     VkCommandBuffer _immCommandBuffer;
     VkCommandPool _immCommandPool;
 
+    std::vector<ComputeEffect> backgroundEffects;
+    int currentBackgroundEffect{0};
+
+    VkPipelineLayout _trianglePipelineLayout;
+    VkPipeline _trianglePipeline;
+
     void immediate_submit(std::function<void(VkCommandBuffer cmd)> &&function);
 
     // initializes everything in the engine
@@ -103,6 +129,8 @@ public:
 
     void draw_background(VkCommandBuffer cmd);
 
+    void draw_geometry(VkCommandBuffer cmd);
+
     // run main loop
     void run();
 
@@ -115,7 +143,8 @@ private:
 
     void init_pipelines();
     void init_background_pipelines();
-
+    void init_triangle_pipeline();
+    
     void init_imgui();
 
     void draw_imgui(VkCommandBuffer cmd, VkImageView targetImageView);
