@@ -118,11 +118,21 @@ public:
 
     void immediate_submit(std::function<void(VkCommandBuffer cmd)> &&function);
 
+    AllocatedBuffer create_buffer(size_t allocSize, VkBufferUsageFlags usage, VmaMemoryUsage memoryUsage);
+    GPUMeshBuffers uploadMesh(std::span<uint32_t> indices, std::span<Vertex> vertices);
+
+    VkPipelineLayout _meshPipelineLayout;
+    VkPipeline _meshPipeline;
+
+    GPUMeshBuffers rectangle;
+
     // initializes everything in the engine
     void init();
 
     // shuts down the engine
     void cleanup();
+
+    void destroy_buffer(const AllocatedBuffer &buffer);
 
     // draw loop
     void draw();
@@ -144,7 +154,10 @@ private:
     void init_pipelines();
     void init_background_pipelines();
     void init_triangle_pipeline();
-    
+    void init_mesh_pipeline();
+
+    void init_default_data();
+
     void init_imgui();
 
     void draw_imgui(VkCommandBuffer cmd, VkImageView targetImageView);
