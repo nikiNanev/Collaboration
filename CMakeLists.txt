@@ -1,7 +1,9 @@
 cmake_minimum_required(VERSION 3.25)
 
-set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_CXX_STANDARD_REQUIRED 20)
+set(CMAKE_CXX_STANDARD 23)
+set(CMAKE_CXX_STANDARD_REQUIRED 23)
+
+set(CMAKE_CXX_COMPILER "/usr/bin/clang++")
 
 project(collab)
 
@@ -52,7 +54,9 @@ add_executable(${PROJECT_NAME} ${SOURCES} ${IMGUI_SOURCES})
 
 add_subdirectory(vk-bootstrap)
 
-target_link_libraries(${PROJECT_NAME} PRIVATE fmt vulkan SDL3 vk-bootstrap::vk-bootstrap)
+add_subdirectory(third_party/fastgltf)
+
+target_link_libraries(${PROJECT_NAME} PRIVATE fmt vulkan SDL3 vk-bootstrap::vk-bootstrap glm fastgltf::fastgltf)
 
 
 

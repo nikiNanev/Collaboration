@@ -1,0 +1,13 @@
+/usr/local/include/simdjson.h
+/usr/local/lib/libfastgltf_simdjson.a
+/usr/local/lib/cmake/fastgltf/fastgltf_simdjsonTargets.cmake
+/usr/local/lib/cmake/fastgltf/fastgltf_simdjsonTargets-noconfig.cmake
+/usr/local/include/fastgltf/base64.hpp
+/usr/local/include/fastgltf/glm_element_traits.hpp
+/usr/local/include/fastgltf/parser.hpp
+/usr/local/include/fastgltf/tools.hpp
+/usr/local/include/fastgltf/types.hpp
+/usr/local/include/fastgltf/util.hpp
+/usr/local/lib/libfastgltf.a
+/usr/local/lib/cmake/fastgltf/fastgltfConfig.cmake
+/usr/local/lib/cmake/fastgltf/fastgltfConfig-noconfig.cmake

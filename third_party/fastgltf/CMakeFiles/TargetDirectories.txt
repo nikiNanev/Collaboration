@@ -1,0 +1,8 @@
+/home/aceraspire5/Dev/Projects/Repos/GameEngine/vulkan-guide-all-chapters-2/third_party/fastgltf/CMakeFiles/fastgltf_simdjson.dir
+/home/aceraspire5/Dev/Projects/Repos/GameEngine/vulkan-guide-all-chapters-2/third_party/fastgltf/CMakeFiles/fastgltf.dir
+/home/aceraspire5/Dev/Projects/Repos/GameEngine/vulkan-guide-all-chapters-2/third_party/fastgltf/CMakeFiles/edit_cache.dir
+/home/aceraspire5/Dev/Projects/Repos/GameEngine/vulkan-guide-all-chapters-2/third_party/fastgltf/CMakeFiles/rebuild_cache.dir
+/home/aceraspire5/Dev/Projects/Repos/GameEngine/vulkan-guide-all-chapters-2/third_party/fastgltf/CMakeFiles/list_install_components.dir
+/home/aceraspire5/Dev/Projects/Repos/GameEngine/vulkan-guide-all-chapters-2/third_party/fastgltf/CMakeFiles/install.dir
+/home/aceraspire5/Dev/Projects/Repos/GameEngine/vulkan-guide-all-chapters-2/third_party/fastgltf/CMakeFiles/install/local.dir
+/home/aceraspire5/Dev/Projects/Repos/GameEngine/vulkan-guide-all-chapters-2/third_party/fastgltf/CMakeFiles/install/strip.dir

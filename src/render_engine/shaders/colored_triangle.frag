@@ -1,3 +1,4 @@
+//> all
 #version 450
 
 //shader input
@@ -11,3 +12,4 @@ void main()
 	//return red
 	outFragColor = vec4(inColor,1.0f);
 }
+//< all
