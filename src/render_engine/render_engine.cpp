@@ -33,7 +33,7 @@ static int imgui_main_window()
 	// Setup SDL
 	if (!SDL_Init(SDL_INIT_VIDEO | SDL_INIT_GAMEPAD) != 0)
 	{
-		printf("Error: SDL_Init(): %s\n", SDL_GetError());
+		fmt::print("Error: SDL_Init(): {}\n", SDL_GetError());
 		return -1;
 	}
 
@@ -42,7 +42,7 @@ static int imgui_main_window()
 	SDL_Window *window = SDL_CreateWindow("Render Engine Main Window", 1280, 720, window_flags);
 	if (window == nullptr)
 	{
-		printf("Error: SDL_CreateWindow(): %s\n", SDL_GetError());
+		fmt::print("Error: SDL_CreateWindow(): {}\n", SDL_GetError());
 		return -1;
 	}
 
@@ -60,7 +60,7 @@ static int imgui_main_window()
 	VkResult err;
 	if (SDL_Vulkan_CreateSurface(window, g_Instance, g_Allocator, &surface) == 0)
 	{
-		printf("Failed to create Vulkan surface.\n");
+		fmt::print("Failed to create Vulkan surface.\n");
 		return 1;
 	}
 

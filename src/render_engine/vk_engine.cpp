@@ -8,7 +8,6 @@
 #include "../../include/render_engine/vk_pipelines.h"
 #include "../../include/render_engine/vk_types.h"
 
-// Adding imgui
 #include "../../third_party/imgui/imgui.h"
 #include "../../third_party/imgui/backends/imgui_impl_sdl3.h"
 #include "../../third_party/imgui/backends/imgui_impl_vulkan.h"
@@ -23,6 +22,8 @@
 #include <SDL3/SDL_vulkan.h>
 #include <chrono>
 #include <thread>
+
+std::string SHADERS_PATH = "../src/render_engine/shaders/";
 
 constexpr bool bUseValidationLayers = true;
 
@@ -61,7 +62,6 @@ void VulkanEngine::init()
 
     init_imgui();
 
-    // everything went fine
     _isInitialized = true;
 }
 
@@ -135,7 +135,7 @@ void VulkanEngine::init_vulkan()
 
     // Limits
     VkPhysicalDeviceLimits limits = physicalDevice.properties.limits;
-    print_physical_device_limits(limits);
+    //print_physical_device_limits(limits);
 }
 
 void VulkanEngine::print_physical_device_limits(const VkPhysicalDeviceLimits& limits) {

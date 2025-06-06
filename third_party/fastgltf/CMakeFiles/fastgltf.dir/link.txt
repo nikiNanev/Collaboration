@@ -1,2 +1,0 @@
-/usr/bin/ar qc libfastgltf.a CMakeFiles/fastgltf.dir/src/fastgltf.cpp.o CMakeFiles/fastgltf.dir/src/base64.cpp.o
-/usr/bin/ranlib libfastgltf.a

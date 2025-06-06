@@ -54,9 +54,7 @@ add_executable(${PROJECT_NAME} ${SOURCES} ${IMGUI_SOURCES})
 
 add_subdirectory(vk-bootstrap)
 
-add_subdirectory(third_party/fastgltf)
-
-target_link_libraries(${PROJECT_NAME} PRIVATE fmt vulkan SDL3 vk-bootstrap::vk-bootstrap glm fastgltf::fastgltf)
+target_link_libraries(${PROJECT_NAME} PRIVATE fmt vulkan SDL3 vk-bootstrap::vk-bootstrap glm)
 
 
 

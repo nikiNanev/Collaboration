@@ -1,2 +1,0 @@
-/usr/bin/ar qc libfastgltf_simdjson.a CMakeFiles/fastgltf_simdjson.dir/deps/simdjson/simdjson.cpp.o
-/usr/bin/ranlib libfastgltf_simdjson.a
