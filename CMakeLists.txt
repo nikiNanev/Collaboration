@@ -8,6 +8,7 @@ set(CMAKE_CXX_COMPILER "/usr/bin/clang++")
 project(collab)
 
 find_package(fmt REQUIRED)
+find_package(OpenAL REQUIRED)
 
 file(GLOB_RECURSE SOURCE_DIRS LIST_DIRECTORIES true "${CMAKE_SOURCE_DIR}/src/*")
 file(GLOB_RECURSE INCLUDE_DIRS LIST_DIRECTORIES true "${CMAKE_SOURCE_DIR}/include/*")
@@ -54,7 +55,7 @@ add_executable(${PROJECT_NAME} ${SOURCES} ${IMGUI_SOURCES})
 
 add_subdirectory(vk-bootstrap)
 
-target_link_libraries(${PROJECT_NAME} PRIVATE fmt vulkan SDL3 vk-bootstrap::vk-bootstrap glm)
+target_link_libraries(${PROJECT_NAME} PRIVATE assimp fmt vulkan SDL3 vk-bootstrap::vk-bootstrap glm OpenAL::OpenAL)
 
 
 

@@ -5,6 +5,8 @@
 
 class SoundEngine {
 	bool isInitialized = false;
+
+	bool sound_state = true;
 public:
 	SoundEngine();
 
@@ -12,6 +14,8 @@ public:
 
 	bool init();
 	void run();
+
+	int sound();
 };
 
 #endif
