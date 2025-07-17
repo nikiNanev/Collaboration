@@ -57,5 +57,3 @@ add_subdirectory(vk-bootstrap)
 
 target_link_libraries(${PROJECT_NAME} PRIVATE assimp fmt vulkan SDL3 vk-bootstrap::vk-bootstrap glm OpenAL::OpenAL)
 
-
-

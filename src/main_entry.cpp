@@ -3,6 +3,7 @@
 #include "../include/render_engine/render_engine.h"
 #include "../include/physics_engine/physics_engine.h"
 #include "../include/sound_engine/sound_engine.h"
+#include "../include/animation_engine/animation_engine.h"
 #include "../include/scripting/scripting.h"
 
 #include <sys/ioctl.h>
@@ -28,7 +29,7 @@ std::string MainEntry::getOptionsDescription()
 
 	std::string separator = this->Separator(w.ws_col - 2);
 
-	std::string optionsText = "Render Engine { 1 | R }  Physics Engine { 2 | P }  Sound Engine { 3 | S }  Scripting Engine { 4 | C }  Quit { q | Q }";
+	std::string optionsText = "Render Engine { 1 | R }  Physics Engine { 2 | P }  Sound Engine { 3 | S }  Scripting Engine { 4 | C }  Animation Engine { 5 | A }  Quit { q | Q }";
 
 	// Centering the options text ( terminalWidth - optionsTextLength ) / 2
 	size_t gap = w.ws_col - optionsText.length();
@@ -56,6 +57,7 @@ bool MainEntry::init()
 	this->optionSet['2'] = "Physics Engine";
 	this->optionSet['3'] = "Sound Engine";
 	this->optionSet['4'] = "Scripting";
+	this->optionSet['5'] = "Animation Engine";
 	this->optionSet['q'] = "Quit";
 
 	this->isInitialized = true; // INIT ( to do )
@@ -121,6 +123,17 @@ void MainEntry::run()
 
 			std::unique_ptr<Scripting> pScripting = std::make_unique<Scripting>();
 			pScripting->run();
+		}
+		break;
+		case '5':
+		case 'A':
+		case 'a':
+		{
+			// Animation Engine
+			this->showMessage(type);
+
+			std::unique_ptr<AnimationEngine> pAnimation = std::make_unique<AnimationEngine>();
+			pAnimation->run();
 		}
 		break;
 		case 'q':
