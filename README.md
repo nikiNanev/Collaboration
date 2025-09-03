@@ -1,6 +1,6 @@
 # Collaboration
 
-	A Game Engine for C/C++ Game Development. The collaboration project is combination of many tools/modules into one ( Render, Sound, Script, Animation, Physics ) engines. The main aim is to make the process of creating games ( 2D/3D ) as easy as possible ( if possible 😂 ). Any **feedbacks** are strongly encouraged 👍. 
+A Game Engine for C/C++ Game Development. The collaboration project is combination of many tools/modules into one ( Render, Sound, Script, Animation, Physics ) engines. The main aim is to make the process of creating games ( 2D/3D ) as easy as possible ( if possible 😂 ). Any **feedbacks** are strongly encouraged 👍. 
 
 ## To Do
 
