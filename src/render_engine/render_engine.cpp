@@ -118,6 +118,10 @@ static int imgui_main_window()
 		while (SDL_PollEvent(&event))
 		{
 			ImGui_ImplSDL3_ProcessEvent(&event);
+			
+			if (event.key.scancode == SDL_SCANCODE_ESCAPE)
+				done = true;
+
 			if (event.type == SDL_EVENT_QUIT)
 				done = true;
 			if (event.type == SDL_EVENT_WINDOW_CLOSE_REQUESTED && event.window.windowID == SDL_GetWindowID(window))

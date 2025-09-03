@@ -14,7 +14,6 @@ Scripting::Scripting()
 
 bool Scripting::init()
 {
-	// init ( to do )
 	this->isInitialized = true;
 
 	if (this->isInitialized)
@@ -113,6 +112,10 @@ int Scripting::MainWindow()
 		while (SDL_PollEvent(&event))
 		{
 			ImGui_ImplSDL3_ProcessEvent(&event);
+			
+			if (event.key.scancode == SDL_SCANCODE_ESCAPE)
+				done = true;
+
 			if (event.type == SDL_EVENT_QUIT)
 				done = true;
 			if (event.type == SDL_EVENT_WINDOW_CLOSE_REQUESTED && event.window.windowID == SDL_GetWindowID(window))
@@ -153,7 +156,7 @@ int Scripting::MainWindow()
 			ImGui::SliderFloat("float", &f, 0.0f, 10.0f);			 // Edit 1 float using a slider from 0.0f to 1.0f
 			ImGui::ColorEdit3("clear color", (float *)&clear_color); // Edit 3 floats representing a color
 
-			std::cout << "f: " << f << std::endl;
+			std::cout << "counter: " << (counter++ % 60) << std::endl;
 
 			ImGui::Text("Application average %.3f ms/frame (%.1f FPS)", 1000.0f / io.Framerate, io.Framerate);
 			ImGui::End();
