@@ -1,5 +1,5 @@
-#include "../../include/render_engine/vk_descriptors.h"
-#include "../../include/render_engine/vk_initializers.h"
+#include "render_engine/vk_descriptors.h"
+#include "render_engine/vk_initializers.h"
 
 
 void DescriptorLayoutBuilder::add_binding(uint32_t binding, VkDescriptorType type)

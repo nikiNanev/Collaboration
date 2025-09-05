@@ -1,6 +1,6 @@
-#include "../../include/physics_engine/physics_engine.h"
+#include "physics_engine/physics_engine.h"
 
-#include "../../third_party/imgui/window_utilities.h"
+#include "third_party/imgui/window_utilities.h"
 
 //Third party
 

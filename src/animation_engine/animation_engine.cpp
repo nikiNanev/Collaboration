@@ -1,8 +1,6 @@
-#include "../../include/animation_engine/animation_engine.h"
+#include "animation_engine/animation_engine.h"
 
-#include "../../third_party/imgui/window_utilities.h"
-
-//Third party
+#include "third_party/imgui/window_utilities.h"
 
 #include <fmt/core.h>
 #include <fmt/color.h>

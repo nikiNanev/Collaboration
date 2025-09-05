@@ -1,4 +1,4 @@
-#include "../../include/physics_engine/collision_detection/collision_detection.h"
+#include "physics_engine/collision_detection/collision_detection.h"
 
 //Third party
 

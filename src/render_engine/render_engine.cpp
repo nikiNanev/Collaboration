@@ -1,9 +1,9 @@
-#include "../../include/render_engine/render_engine.h"
+#include "render_engine/render_engine.h"
 
-#include "../../third_party/imgui/window_utilities.h"
+#include "third_party/imgui/window_utilities.h"
 
 // Headers for Vulkan Engine
-#include "../../include/render_engine/vk_engine.h"
+#include "render_engine/vk_engine.h"
 
 
 // End of Vulkan headers

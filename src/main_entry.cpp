@@ -1,10 +1,10 @@
-#include "../include/main_entry.h"
+#include "main_entry.h"
 
-#include "../include/render_engine/render_engine.h"
-#include "../include/physics_engine/physics_engine.h"
-#include "../include/sound_engine/sound_engine.h"
-#include "../include/animation_engine/animation_engine.h"
-#include "../include/scripting/scripting.h"
+#include "render_engine/render_engine.h"
+#include "physics_engine/physics_engine.h"
+#include "sound_engine/sound_engine.h"
+#include "animation_engine/animation_engine.h"
+#include "scripting/scripting.h"
 
 #include <sys/ioctl.h>
 #include <unistd.h>

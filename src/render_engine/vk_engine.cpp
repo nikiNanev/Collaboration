@@ -1,16 +1,16 @@
 #define VMA_IMPLEMENTATION
-#include "../../include/render_engine/vk_mem_alloc.h"
+#include "render_engine/vk_mem_alloc.h"
 
-#include "../../include/render_engine/vk_engine.h"
-#include "../../include/render_engine/vk_images.h"
-#include "../../include/render_engine/vk_descriptors.h"
-#include "../../include/render_engine/vk_initializers.h"
-#include "../../include/render_engine/vk_pipelines.h"
-#include "../../include/render_engine/vk_types.h"
+#include "render_engine/vk_engine.h"
+#include "render_engine/vk_images.h"
+#include "render_engine/vk_descriptors.h"
+#include "render_engine/vk_initializers.h"
+#include "render_engine/vk_pipelines.h"
+#include "render_engine/vk_types.h"
 
-#include "../../third_party/imgui/imgui.h"
-#include "../../third_party/imgui/backends/imgui_impl_sdl3.h"
-#include "../../third_party/imgui/backends/imgui_impl_vulkan.h"
+#include "third_party/imgui/imgui.h"
+#include "third_party/imgui/backends/imgui_impl_sdl3.h"
+#include "third_party/imgui/backends/imgui_impl_vulkan.h"
 
 #include <glm/gtx/transform.hpp>
 

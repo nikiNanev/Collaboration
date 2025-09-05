@@ -44,12 +44,12 @@ set(IMGUI_SOURCES
     third_party/imgui/imgui_widgets.cpp)
 
 set(IMGUI_INCLUDES
-    third_party/imgui/
-    third_party/imgui/backends/)
+    include/third_party/imgui/
+    include/third_party/imgui/backends/)
 
 message(STATUS "IMGUI sources: ${IMGUI_SOURCES}")
 message(STATUS "IMGUI headers: ${IMGUI_INCLUDES}")
-include_directories(${INCLUDES} ${IMGUI_INCLUDES})
+include_directories(./include ${IMGUI_INCLUDES} ${INCLUDES})
 
 add_executable(${PROJECT_NAME} ${SOURCES} ${IMGUI_SOURCES})
 

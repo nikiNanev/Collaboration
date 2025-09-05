@@ -1,5 +1,5 @@
-#include "../../include/render_engine/vk_images.h"
-#include "../../include/render_engine/vk_initializers.h"
+#include "render_engine/vk_images.h"
+#include "render_engine/vk_initializers.h"
 
 void vkutil::transition_image(VkCommandBuffer cmd, VkImage image, VkImageLayout currentLayout, VkImageLayout newLayout)
 {

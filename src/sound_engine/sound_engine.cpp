@@ -1,6 +1,6 @@
-#include "../../include/sound_engine/sound_engine.h"
+#include "sound_engine/sound_engine.h"
 
-#include "../../third_party/imgui/window_utilities.h"
+#include "third_party/imgui/window_utilities.h"
 
 #include <chrono>
 #include <thread>

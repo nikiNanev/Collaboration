@@ -1,6 +1,6 @@
-#include "../../include/scripting/scripting.h"
+#include "scripting/scripting.h"
 
-#include "../../third_party/imgui/window_utilities.h"
+#include "third_party/imgui/window_utilities.h"
 
 // Third party
 

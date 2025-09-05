@@ -1,6 +1,6 @@
-#include "../../include/render_engine/vk_pipelines.h"
-#include "../../include/render_engine/vk_initializers.h"
-#include "../../include/render_engine/vk_types.h"
+#include "render_engine/vk_pipelines.h"
+#include "render_engine/vk_initializers.h"
+#include "render_engine/vk_types.h"
 
 #include <fstream>
 
