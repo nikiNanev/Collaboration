@@ -1,22 +1,22 @@
 #include "sound_engine/sound_engine.h"
 
+//Modules
+
+#include "sound_engine/modules/loader.h"
+
+
+//Third party
+
 #include "third_party/imgui/window_utilities.h"
-
-#include <chrono>
-#include <thread>
-#include <vector>
-#include <fstream>
-#include <iostream>
-
-// Third party
 
 #include <fmt/core.h>
 #include <fmt/color.h>
 
-#include <AL/al.h>
-#include <AL/alc.h>
-#include <AL/alext.h>
-#include <AL/alut.h>
+
+
+#include <chrono>
+#include <thread>
+#include <iostream>
 
 int SoundEngine::MainWindow()
 {
@@ -174,12 +174,14 @@ int SoundEngine::MainWindow()
 
 		if (play_sound)
 		{
+			Loader *loader = new Loader();
+
 			ImGui::Begin("Playing a sound", &play_sound); // Pass a pointer to our bool variable (the window will have a closing button that will clear the bool when clicked)
 			ImGui::Text("Here is the place of producing the sound.");
 			if (ImGui::Button("Play"))
 			{
-				this->sound();
-				this->sound_state = true;
+				loader->sound("sounds/test.wav");
+				loader->setState(true);
 				play_sound = false;
 			}
 
@@ -220,145 +222,6 @@ int SoundEngine::MainWindow()
 SoundEngine::SoundEngine()
 {
 	fmt::print(fg(fmt::color::sea_green), "\n{}\n", "Sound Engine entry point.");
-}
-
-// Basic WAV loader for uncompressed mono WAVs
-bool loadWavFile(const std::string &filename, std::vector<char> &data,
-				 ALenum &format, ALsizei &freq)
-{
-	std::ifstream file(filename, std::ios::binary);
-	if (!file)
-	{
-		std::cerr << "Failed to open WAV file.\n";
-		return false;
-	}
-
-	char riff[4];
-	file.read(riff, 4); // "RIFF"
-	file.ignore(4);		// Chunk size
-	char wave[4];
-	file.read(wave, 4); // "WAVE"
-
-	// Read chunks
-	char chunkId[4];
-	int chunkSize;
-	short audioFormat, numChannels, bitsPerSample;
-	int sampleRate;
-
-	while (file.read(chunkId, 4))
-	{
-		file.read(reinterpret_cast<char *>(&chunkSize), 4);
-
-		if (std::strncmp(chunkId, "fmt ", 4) == 0)
-		{
-			file.read(reinterpret_cast<char *>(&audioFormat), 2);
-			file.read(reinterpret_cast<char *>(&numChannels), 2);
-			file.read(reinterpret_cast<char *>(&sampleRate), 4);
-			file.ignore(6); // Byte rate + block align
-			file.read(reinterpret_cast<char *>(&bitsPerSample), 2);
-			file.ignore(chunkSize - 16); // Skip the rest
-		}
-		else if (std::strncmp(chunkId, "data", 4) == 0)
-		{
-			data.resize(chunkSize);
-			file.read(data.data(), chunkSize);
-			break;
-		}
-		else
-		{
-			file.ignore(chunkSize);
-		}
-	}
-
-	freq = sampleRate;
-	if (numChannels == 1)
-	{
-		format = (bitsPerSample == 8) ? AL_FORMAT_MONO8 : AL_FORMAT_MONO16;
-	}
-	else if (numChannels == 2)
-	{
-		format = (bitsPerSample == 8) ? AL_FORMAT_STEREO8 : AL_FORMAT_STEREO16;
-	}
-	else
-	{
-		std::cerr << "Unsupported channel count: " << numChannels << "\n";
-		return false;
-	}
-
-	return true;
-}
-
-int SoundEngine::sound()
-{
-	ALCdevice *device = alcOpenDevice(nullptr);
-	if (!device)
-	{
-		std::cerr << "Failed to open device.\n";
-		return -1;
-	}
-
-	ALCcontext *context = alcCreateContext(device, nullptr);
-	if (!context || !alcMakeContextCurrent(context))
-	{
-		std::cerr << "Failed to set OpenAL context.\n";
-		alcCloseDevice(device);
-		return -1;
-	}
-
-	// Load sound
-	std::vector<char> bufferData;
-	ALenum format;
-	ALsizei freq;
-	if (!loadWavFile("sounds/test.wav", bufferData, format, freq))
-	{
-		std::cerr << "Failed to load WAV.\n";
-		alcDestroyContext(context);
-		alcCloseDevice(device);
-		return -1;
-	}
-
-	// Generate buffer
-	ALuint buffer;
-	alGenBuffers(1, &buffer);
-	alBufferData(buffer, format, bufferData.data(), bufferData.size(), freq);
-
-	// Generate source
-	ALuint source;
-	alGenSources(1, &source);
-	alSourcei(source, AL_BUFFER, buffer);
-
-	if (this->sound_state)
-	{
-		alSourcePlay(source);
-	}
-	else
-	{
-		alSourceStop(source);
-		return 0;
-	}
-
-	std::cout << "Playing sound...\n";
-
-	// Wait until done
-	ALint state;
-	do
-	{
-		alGetSourcei(source, AL_SOURCE_STATE, &state);
-	} while (state == AL_PLAYING);
-	
-
-	std::cout << "Done.\n";
-
-	this->sound_state = false;
-
-	// Cleanup
-	alDeleteSources(1, &source);
-	alDeleteBuffers(1, &buffer);
-	alcMakeContextCurrent(nullptr);
-	alcDestroyContext(context);
-	alcCloseDevice(device);
-
-	return 0;
 }
 
 bool SoundEngine::init()

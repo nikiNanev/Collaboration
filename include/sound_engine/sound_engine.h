@@ -1,12 +1,10 @@
 #ifndef SOUND_ENGINE
 #define SOUND_ENGINE
 
-#include <iostream>
-
 class SoundEngine {
-	bool isInitialized = false;
 
-	bool sound_state = true;
+private:
+	bool isInitialized = false;
 public:
 	SoundEngine();
 
@@ -15,7 +13,6 @@ public:
 	bool init();
 	void run();
 
-	int sound();
 };
 
 #endif
