@@ -7,6 +7,9 @@
 #include <fmt/core.h>
 #include <fmt/color.h>
 
+#define WIDTH 1280
+#define HEIGHT 720
+
 Scripting::Scripting()
 {
 	fmt::print(fg(fmt::color::dark_orange), "\n{}\n", "Scripting entry point.");
@@ -33,7 +36,7 @@ int Scripting::MainWindow()
 
 	// Create window with Vulkan graphics context
 	SDL_WindowFlags window_flags = (SDL_WindowFlags)(SDL_WINDOW_VULKAN | SDL_WINDOW_RESIZABLE | SDL_WINDOW_HIGH_PIXEL_DENSITY | SDL_WINDOW_HIDDEN);
-	SDL_Window *window = SDL_CreateWindow("Scripting Engine Main Window", 1280, 720, window_flags);
+	SDL_Window *window = SDL_CreateWindow("Scripting Engine Main Window", WIDTH, HEIGHT, window_flags);
 	if (window == nullptr)
 	{
 		printf("Error: SDL_CreateWindow(): %s\n", SDL_GetError());

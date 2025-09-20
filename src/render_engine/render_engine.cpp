@@ -12,6 +12,9 @@
 #include <fmt/core.h>
 #include <fmt/color.h>
 
+#define WIDTH 1280
+#define HEIGHT 720
+
 RenderEngine::RenderEngine()
 {
 	fmt::print(fg(fmt::color::dark_red), "\n{}\n", "Render Engine Entry point.");
@@ -39,7 +42,7 @@ static int imgui_main_window()
 
 	// Create window with Vulkan graphics context
 	SDL_WindowFlags window_flags = (SDL_WindowFlags)(SDL_WINDOW_VULKAN | SDL_WINDOW_RESIZABLE | SDL_WINDOW_HIGH_PIXEL_DENSITY | SDL_WINDOW_HIDDEN);
-	SDL_Window *window = SDL_CreateWindow("Render Engine Main Window", 1280, 720, window_flags);
+	SDL_Window *window = SDL_CreateWindow("Render Engine Main Window", WIDTH, HEIGHT, window_flags);
 	if (window == nullptr)
 	{
 		fmt::print("Error: SDL_CreateWindow(): {}\n", SDL_GetError());
