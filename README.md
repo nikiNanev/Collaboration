@@ -1,6 +1,12 @@
 # Collaboration
 
-A Game Engine for C/C++ Game Development. The collaboration project is combination of many tools/modules into one ( Render, Sound, Script, Animation, Physics ) engines. The main aim is to make the process of creating games ( 2D/3D ) as easy as possible ( if possible 😂 ). Any **feedbacks** are strongly encouraged 👍. 
+A Game Engine for C/C++ Game Development. The collaboration project is combination of many tools/modules into one ( Render, Sound, Script, Animation, Physics ) engines. The main aim is to make the process of creating games ( 2D/3D ) as easy as possible ( if possible 😂 ). 
+
+## Feedback
+
+Any **feedbacks** are strongly encouraged 👍. Places for feedbacks: [Youtube Channel](https://www.youtube.com/@niki.nanev.94/posts), [Discord](https://discord.gg/5z47pnfc)
+
+
 
 ## To Do
 
@@ -15,4 +21,6 @@ A Game Engine for C/C++ Game Development. The collaboration project is combinati
 
 ## Build
 
-Create a build directory and depending on the directory, use ```cmake -B.``` to build in the current directory and ```-S..``` option for the source CMakeLists.txt.
+Create a build directory and depending on the directory.
+Use ```cmake -B.``` to build in the current directory and ```-S..``` option for the source CMakeLists.txt.
+
