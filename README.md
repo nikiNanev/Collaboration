@@ -28,5 +28,5 @@ Use ```--recurse-submodules``` git command to use vk-bootstrap submodule. Exampl
 
 Create a build directory and depending on the directory.
 
-Use ```cmake -B .``` to build in the current directory and ```cmake --build build``` to create your build of the collab engine.
+Use ```cmake -B build``` to build in the current directory and ```cmake --build build``` to create your build of the collab engine.
 
