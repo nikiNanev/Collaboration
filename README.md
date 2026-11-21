@@ -19,8 +19,14 @@ Any **feedbacks** are strongly encouraged 👍. Places for feedbacks: [Youtube C
 - [ ] Version Control of the project
 - [ ] Displaying/Loading shader status ( file size, LoC, etc. )
 
+## Cloning
+
+Use ```--recurse-submodules``` git command to use vk-bootstrap submodule. Example:
+``` git clone --recuse-submodules -j8 git@github.com:nikiNanev/Collaboration.git . ```
+
 ## Build
 
 Create a build directory and depending on the directory.
-Use ```cmake -B.``` to build in the current directory and ```-S..``` option for the source CMakeLists.txt.
+
+Use ```cmake -B .``` to build in the current directory and ```cmake --build build``` to create your build of the collab engine.
 
