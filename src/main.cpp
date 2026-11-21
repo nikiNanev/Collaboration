@@ -1,16 +1,19 @@
-#include "main_entry.h"
-
-#include "render_engine/render_engine.h"
-#include "physics_engine/physics_engine.h"
-#include "sound_engine/sound_engine.h"
-#include "scripting/scripting.h"
-
-#include <fmt/core.h>
-#include <fmt/color.h>
+#include "MainWindow.hpp"
 
 int main(int argc, char *argv[])
 {
-	MainEntry *pMainEntry = new MainEntry();
-	pMainEntry->run();
+	
+	/***
+	 *
+	 *	Collaboration Project where players and game dev are One
+	 *
+	 * 	Let's build builders and create creators
+	 *
+	 ***/
+
+
+	MainWindow mw;
+	mw.run();
+
 	return 0;
 }
