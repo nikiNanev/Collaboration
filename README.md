@@ -30,4 +30,3 @@ Create a build directory and depending on the directory.
 
 Use ```cmake -B build``` to build in the current directory and ```cmake --build build``` to create your build of the collab engine.
 
-
